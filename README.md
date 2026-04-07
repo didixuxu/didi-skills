@@ -26,7 +26,7 @@ Paper Onion - a four-layer progressive reading skill for academic papers. Peels 
 
 ```bash
 # Clone to your Claude Code skills directory
-git clone https://github.com/dixu/didi-skills.git
+git clone https://github.com/didixuxu/didi-skills.git
 
 # Symlink individual skills to ~/.claude/skills/
 ln -s "$(pwd)/didi-skills/competitive-landscape" ~/.claude/skills/competitive-landscape
@@ -35,6 +35,21 @@ ln -s "$(pwd)/didi-skills/paper-proofread" ~/.claude/skills/paper-proofread
 ```
 
 Or copy the skill folders directly into `~/.claude/skills/` or your project's `.claude/skills/` directory.
+
+## Adding a New Skill
+
+```bash
+# 1. Copy the skill folder into this repo
+cp -r ~/.claude/skills/skill-name "/Users/dixu/Desktop/claude code/didi-skills/"
+
+# 2. Commit and push
+cd "/Users/dixu/Desktop/claude code/didi-skills"
+git add skill-name/
+git commit -m "Add skill-name skill"
+git push
+```
+
+Or just tell Claude: "把 xxx skill 上传到 GitHub"
 
 ## License
 

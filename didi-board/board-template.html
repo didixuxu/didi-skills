@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-faint: #888;
+    --paper: #faf8f3;
+    --paper-warm: #f3ede0;
+    --accent-red: #c0392b;
+    --accent-blue: #2c5f8a;
+    --accent-green: #2d6a4f;
+    --sketch: #1a1a1a;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #e8e4db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container { width: 100%; max-width: 860px; }
+
+  /* Progress bar */
+  .progress-track { display: flex; gap: 8px; margin-bottom: 16px; justify-content: center; }
+  .progress-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #bbb; cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .progress-dot.active { background: var(--ink); transform: scale(1.3); }
+
+  /* Slide */
+  .slide {
+    display: none;
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 52px 60px 44px;
+    min-height: 520px;
+    position: relative;
+    box-shadow: 2px 2px 0 #c8c2b4, 4px 4px 0 #b8b2a4, 6px 6px 0 rgba(0,0,0,0.08);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(0,0,0,0.03) 27px, rgba(0,0,0,0.03) 28px);
+  }
+  .slide.active { display: flex; flex-direction: column; }
+
+  .slide-num {
+    font-family: 'Caveat', cursive; font-size: 13px;
+    color: var(--ink-faint); position: absolute; top: 20px; right: 28px;
+  }
+
+  /* Title */
+  .slide-title {
+    font-family: 'Caveat', cursive; font-size: 32px; font-weight: 700;
+    color: var(--ink); margin-bottom: 28px; line-height: 1.2;
+    border-bottom: 2.5px solid var(--ink); padding-bottom: 10px;
+  }
+  .slide-title .en {
+    font-size: 14px; color: var(--ink-faint); font-weight: 400;
+    display: block; margin-top: 2px; font-family: 'Caveat', cursive;
+  }
+
+  /* Body */
+  .slide-body { flex: 1; display: flex; gap: 36px; align-items: flex-start; }
+  .text-col { flex: 1; }
+  .art-col { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+  /* Points */
+  .point { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+  .point-marker {
+    font-family: 'Caveat', cursive; font-size: 20px;
+    color: var(--accent-red); min-width: 24px; margin-top: 1px; line-height: 1;
+  }
+  .point-text { font-size: 15px; line-height: 1.7; color: var(--ink); }
+  .point-text strong {
+    font-weight: 500; color: var(--ink);
+    background: linear-gradient(transparent 60%, rgba(192,57,43,0.15) 60%);
+  }
+  .point-sub { font-size: 13px; color: var(--ink-faint); margin-top: 3px; font-style: italic; }
+
+  /* Callout */
+  .callout {
+    border: 2px solid var(--ink); border-radius: 3px;
+    padding: 12px 16px; margin-top: 18px;
+    background: var(--paper-warm);
+    font-family: 'Caveat', cursive; font-size: 17px;
+    color: var(--ink); line-height: 1.5; position: relative;
+  }
+  .callout::before {
+    content: '★'; position: absolute; top: -12px; left: 12px;
+    background: var(--paper); padding: 0 4px; font-size: 14px; color: var(--accent-red);
+  }
+
+  /* Nav */
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+  .nav-btn {
+    font-family: 'Caveat', cursive; font-size: 17px;
+    background: none; border: 2px solid var(--ink); color: var(--ink);
+    padding: 7px 22px; border-radius: 2px; cursor: pointer;
+    transition: background 0.15s, color 0.15s; letter-spacing: 0.03em;
+  }
+  .nav-btn:hover { background: var(--ink); color: var(--paper); }
+  .nav-btn:disabled { opacity: 0.2; cursor: default; }
+  .nav-btn:disabled:hover { background: none; color: var(--ink); }
+  .slide-label { font-family: 'Caveat', cursive; font-size: 14px; color: var(--ink-faint); }
+
+  /* SVG sketches */
+  svg.sketch { font-family: 'Caveat', cursive; }
+
+  /* Flow */
+  .flow { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; margin-top: 8px; }
+  .flow-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); }
+  .flow-box {
+    border: 2px solid var(--ink); border-radius: 3px; padding: 6px 12px;
+    font-family: 'Caveat', cursive; font-size: 16px;
+    background: white; min-width: 110px; text-align: center;
+  }
+  .flow-box.red { border-color: var(--accent-red); color: var(--accent-red); }
+  .flow-box.blue { border-color: var(--accent-blue); color: var(--accent-blue); }
+  .flow-box.green { border-color: var(--accent-green); color: var(--accent-green); }
+  .flow-arrow { font-size: 20px; color: var(--ink-faint); margin-left: 4px; }
+  .flow-label { font-size: 12px; color: var(--ink-faint); font-style: italic; }
+
+  /* Compare table */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 2px solid var(--ink); border-radius: 3px; overflow: hidden; margin-top: 12px;
+  }
+  .compare-header {
+    background: var(--ink); color: var(--paper);
+    font-family: 'Caveat', cursive; font-size: 17px; padding: 8px 14px; text-align: center;
+  }
+  .compare-cell {
+    padding: 10px 14px; font-size: 13.5px; line-height: 1.6;
+    color: var(--ink); border-top: 1.5px solid #ddd;
+  }
+  .compare-cell:nth-child(odd) { border-right: 1.5px solid #ddd; }
+
+  /* Tags */
+  .tag {
+    display: inline-block; font-family: 'Caveat', cursive; font-size: 14px;
+    border: 1.5px solid currentColor; border-radius: 2px; padding: 2px 8px; margin: 2px;
+  }
+  .tag.red { color: var(--accent-red); }
+  .tag.blue { color: var(--accent-blue); }
+  .tag.green { color: var(--accent-green); }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="progress-track" id="dots"></div>
+
+  <!-- SLIDES GO HERE -->
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>← 上一张</button>
+    <span class="slide-label" id="slideLabel">1 / {{TOTAL}}</span>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">下一张 →</button>
+  </div>
+</div>
+
+<script>
+  const total = {{TOTAL}};
+  let current = 1;
+
+  const dotsContainer = document.getElementById('dots');
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'progress-dot' + (i === 1 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsContainer.appendChild(d);
+  }
+
+  function goTo(n) {
+    document.getElementById('s' + current).classList.remove('active');
+    dotsContainer.children[current - 1].classList.remove('active');
+    current = n;
+    document.getElementById('s' + current).classList.add('active');
+    dotsContainer.children[current - 1].classList.add('active');
+    document.getElementById('prevBtn').disabled = current === 1;
+    document.getElementById('nextBtn').disabled = current === total;
+    document.getElementById('slideLabel').textContent = current + ' / ' + total;
+  }
+
+  function changeSlide(dir) { goTo(current + dir); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && current < total) changeSlide(1);
+    if (e.key === 'ArrowLeft' && current > 1) changeSlide(-1);
+  });
+</script>
+</body>
+</html>

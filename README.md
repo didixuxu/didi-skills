@@ -22,6 +22,18 @@ Paper Onion - a four-layer progressive reading skill for academic papers. Peels 
 
 **Usage:** Give Claude a paper PDF or URL. It produces a beautiful visual notecard summarizing the paper's core insights.
 
+### word-formatter
+
+Transform messy Word documents or plain text into professionally formatted .docx/PDF files. Detects content type (meeting notes / report / study notes / proposal), applies matching style (business formal / modern minimal / academic), and can auto-generate cover images and data charts.
+
+**Usage:** Drop a .docx or text file at Claude. It analyzes content type, asks how aggressively you want it restructured, and outputs a polished Word document.
+
+### word-proofreader
+
+Proofread .docx files with Word Track Changes — fix typos, polish wording, optionally unify formatting (font / size / line spacing / heading hierarchy). Every edit is recorded as a tracked change so you can review/accept/reject in Word.
+
+**Usage:** Give Claude a .docx and say "proofread this" or "校对". Choose typo-only / typo+polish / full mode, then open the output file and review changes in Word's Review tab.
+
 ## Install
 
 ```bash
@@ -32,6 +44,8 @@ git clone https://github.com/didixuxu/didi-skills.git
 ln -s "$(pwd)/didi-skills/competitive-landscape" ~/.claude/skills/competitive-landscape
 ln -s "$(pwd)/didi-skills/market-sizing-analysis" ~/.claude/skills/market-sizing-analysis
 ln -s "$(pwd)/didi-skills/paper-proofread" ~/.claude/skills/paper-proofread
+ln -s "$(pwd)/didi-skills/word-formatter" ~/.claude/skills/word-formatter
+ln -s "$(pwd)/didi-skills/word-proofreader" ~/.claude/skills/word-proofreader
 ```
 
 Or copy the skill folders directly into `~/.claude/skills/` or your project's `.claude/skills/` directory.

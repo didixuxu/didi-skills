@@ -1,0 +1,121 @@
+{
+  "business_formal": {
+    "name": "商务正式",
+    "description": "适用于工作报告、会议纪要等正式商务文档",
+    "fonts": {
+      "title": "Microsoft YaHei",
+      "heading": "Microsoft YaHei",
+      "body": "Microsoft YaHei"
+    },
+    "sizes": {
+      "title": 22,
+      "heading1": 16,
+      "heading2": 14,
+      "body": 11
+    },
+    "spacing": {
+      "line": 1.5,
+      "paragraph_before": 6,
+      "paragraph_after": 12
+    },
+    "colors": {
+      "primary": "#1a365d",
+      "accent": "#2b6cb0",
+      "text": "#2d3748",
+      "background": "#ffffff",
+      "light": "#e2e8f0"
+    },
+    "image_prompts": {
+      "cover": "Professional business cover design, corporate blue gradient, minimalist geometric shapes, clean and modern, high quality",
+      "illustration": "Professional business illustration of {concept}, flat design, corporate blue color scheme, minimalist, clean background, vector style",
+      "divider": "Elegant horizontal divider line, blue gradient, corporate style"
+    }
+  },
+  "modern_minimal": {
+    "name": "简约现代",
+    "description": "适用于学习笔记、个人文档等需要清晰阅读体验的文档",
+    "fonts": {
+      "title": "PingFang SC",
+      "heading": "PingFang SC",
+      "body": "PingFang SC"
+    },
+    "sizes": {
+      "title": 24,
+      "heading1": 18,
+      "heading2": 14,
+      "body": 11
+    },
+    "spacing": {
+      "line": 1.8,
+      "paragraph_before": 8,
+      "paragraph_after": 16
+    },
+    "colors": {
+      "primary": "#1a202c",
+      "accent": "#4a5568",
+      "text": "#2d3748",
+      "background": "#ffffff",
+      "light": "#f7fafc"
+    },
+    "image_prompts": {
+      "cover": "Modern minimalist cover design, black and white with subtle accent color, geometric abstract shapes, clean typography space, elegant",
+      "illustration": "Modern minimalist illustration of {concept}, geometric shapes, black and white with accent color, clean lines, abstract, professional",
+      "divider": "Minimal line divider, thin black line with subtle geometric accent"
+    }
+  },
+  "academic": {
+    "name": "学术风格",
+    "description": "适用于方案文档、研究报告等需要严谨格式的文档",
+    "fonts": {
+      "title": "SimSun",
+      "heading": "SimHei",
+      "body": "SimSun"
+    },
+    "sizes": {
+      "title": 18,
+      "heading1": 15,
+      "heading2": 13,
+      "body": 12
+    },
+    "spacing": {
+      "line": 1.5,
+      "paragraph_before": 6,
+      "paragraph_after": 6
+    },
+    "colors": {
+      "primary": "#1a202c",
+      "accent": "#4a5568",
+      "text": "#000000",
+      "background": "#ffffff",
+      "light": "#f0f0f0"
+    },
+    "image_prompts": {
+      "cover": "Academic paper cover design, clean and professional, subtle gray tones, formal layout, university style",
+      "illustration": "Educational diagram illustrating {concept}, clean and simple, textbook style, labeled components, neutral colors",
+      "divider": "Simple horizontal line, thin and subtle, academic document style"
+    }
+  },
+  "chart_styles": {
+    "bar": {
+      "figsize": [10, 6],
+      "bar_width": 0.6,
+      "edge_color": "none",
+      "grid": true,
+      "grid_alpha": 0.3
+    },
+    "pie": {
+      "figsize": [8, 8],
+      "autopct": "%1.1f%%",
+      "startangle": 90,
+      "explode_max": 0.05
+    },
+    "line": {
+      "figsize": [10, 6],
+      "linewidth": 2,
+      "marker": "o",
+      "marker_size": 8,
+      "grid": true,
+      "grid_alpha": 0.3
+    }
+  }
+}

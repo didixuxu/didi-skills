@@ -1,6 +1,6 @@
 # didi-skills
 
-Claude Code Skills for competitive analysis, market sizing, and academic paper reading.
+Claude Code Skills for competitive analysis, market sizing, academic paper reading, document formatting, and data visualization.
 
 ## Skills
 
@@ -34,6 +34,12 @@ Proofread .docx files with Word Track Changes — fix typos, polish wording, opt
 
 **Usage:** Give Claude a .docx and say "proofread this" or "校对". Choose typo-only / typo+polish / full mode, then open the output file and review changes in Word's Review tab.
 
+### data-visualization
+
+Chart selection guidance and Python visualization code patterns for matplotlib / seaborn / plotly. Covers chart type selection by data relationship, design principles (color, typography, layout, accuracy), accessibility checklist, Chinese font configuration on macOS, and an "insight card" KPI summary template that pairs charts with narrative.
+
+**Usage:** Auto-triggers when Claude writes Python visualization code. Tell Claude what you want to show ("trend over time", "rank top 10", "distribution") and it picks the right chart and applies professional styling.
+
 ## Install
 
 ```bash
@@ -46,6 +52,7 @@ ln -s "$(pwd)/didi-skills/market-sizing-analysis" ~/.claude/skills/market-sizing
 ln -s "$(pwd)/didi-skills/paper-proofread" ~/.claude/skills/paper-proofread
 ln -s "$(pwd)/didi-skills/word-formatter" ~/.claude/skills/word-formatter
 ln -s "$(pwd)/didi-skills/word-proofreader" ~/.claude/skills/word-proofreader
+ln -s "$(pwd)/didi-skills/data-visualization" ~/.claude/skills/data-visualization
 ```
 
 Or copy the skill folders directly into `~/.claude/skills/` or your project's `.claude/skills/` directory.

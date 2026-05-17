@@ -1,0 +1,123 @@
+% ATS-Friendly Resume Template
+% Single column, clean formatting, selectable text
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Colors
+\definecolor{linkcolor}{RGB}{0,102,204}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    urlcolor=linkcolor,
+    pdfborder={0 0 0}
+}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\name}[1]{\centerline{\Huge\bfseries #1}\vspace{4pt}}
+\newcommand{\contact}[1]{\centerline{#1}\vspace{8pt}}
+\newcommand{\jobtitle}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+    \vspace{-4pt}
+}
+\newcommand{\education}[4]{
+    \textbf{#1} \hfill #2 \\
+    #3 \hfill \textit{#4}
+    \vspace{-4pt}
+}
+
+% List settings
+\setlist[itemize]{nosep, leftmargin=*, topsep=2pt}
+
+\begin{document}
+
+% ============================================
+% HEADER - Replace with actual info
+% ============================================
+\name{YOUR NAME}
+\contact{
+    your.email@example.com $\vert$
+    +1 (555) 123-4567 $\vert$
+    City, Country $\vert$
+    \href{https://linkedin.com/in/yourprofile}{LinkedIn} $\vert$
+    \href{https://github.com/yourusername}{GitHub}
+}
+
+% ============================================
+% PROFESSIONAL SUMMARY
+% Tailor this section to match JD keywords
+% ============================================
+\section{Professional Summary}
+[TAILOR: Write 2-3 sentences summarizing relevant experience, using keywords from JD. Focus on years of experience, key skills, and notable achievements that match the role.]
+
+% ============================================
+% SKILLS
+% Reorder to prioritize skills mentioned in JD
+% ============================================
+\section{Skills}
+\textbf{Technical:} [List technical skills matching JD first] \\
+\textbf{Tools:} [List tools/frameworks matching JD] \\
+\textbf{Soft Skills:} [Include soft skills mentioned in JD]
+
+% ============================================
+% EXPERIENCE
+% Reorder bullets to lead with most relevant
+% ============================================
+\section{Experience}
+
+\jobtitle{Job Title}{Company Name}{City, Country}{Month Year -- Present}
+\begin{itemize}
+    \item [TAILOR: Lead with accomplishment most relevant to target JD]
+    \item Quantified achievement with metrics (\%, \$, scale)
+    \item Action verb + what you did + impact/result
+\end{itemize}
+
+\jobtitle{Previous Job Title}{Previous Company}{City, Country}{Month Year -- Month Year}
+\begin{itemize}
+    \item Achievement relevant to target role
+    \item Another quantified accomplishment
+\end{itemize}
+
+% ============================================
+% EDUCATION
+% ============================================
+\section{Education}
+
+\education{Degree Name}{University Name}{Major/Concentration}{Graduation Year}
+
+% ============================================
+% PROJECTS (Optional - include if relevant)
+% ============================================
+% \section{Projects}
+% \textbf{Project Name} -- Brief description of project and technologies used
+% \begin{itemize}
+%     \item Key achievement or feature
+% \end{itemize}
+
+% ============================================
+% CERTIFICATIONS (Optional)
+% ============================================
+% \section{Certifications}
+% \begin{itemize}
+%     \item Certification Name -- Issuing Organization (Year)
+% \end{itemize}
+
+\end{document}

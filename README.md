@@ -1,6 +1,6 @@
 # didi-skills
 
-Claude Code Skills for competitive analysis, market sizing, academic paper reading, document formatting, and data visualization.
+Claude Code Skills for competitive analysis, market sizing, academic paper reading, document formatting, data visualization, and resume tailoring.
 
 ## Skills
 
@@ -40,6 +40,12 @@ Chart selection guidance and Python visualization code patterns for matplotlib /
 
 **Usage:** Auto-triggers when Claude writes Python visualization code. Tell Claude what you want to show ("trend over time", "rank top 10", "distribution") and it picks the right chart and applies professional styling.
 
+### tailor-resume
+
+Customize a master resume against a job description and compile an ATS-friendly PDF. Reads your master resume PDF + the JD, rewrites bullets with JD keywords (without changing real titles), reorders most-relevant experience to the top, and generates LaTeX → PDF via `pdflatex`.
+
+**Usage:** Drop a JD at Claude and say "tailor resume" / "定制简历". Master resume defaults to `~/Documents/resume.pdf`. Output to `~/Documents/resume_[company]_[role].pdf`.
+
 ## Install
 
 ```bash
@@ -53,6 +59,7 @@ ln -s "$(pwd)/didi-skills/paper-proofread" ~/.claude/skills/paper-proofread
 ln -s "$(pwd)/didi-skills/word-formatter" ~/.claude/skills/word-formatter
 ln -s "$(pwd)/didi-skills/word-proofreader" ~/.claude/skills/word-proofreader
 ln -s "$(pwd)/didi-skills/data-visualization" ~/.claude/skills/data-visualization
+ln -s "$(pwd)/didi-skills/tailor-resume" ~/.claude/skills/tailor-resume
 ```
 
 Or copy the skill folders directly into `~/.claude/skills/` or your project's `.claude/skills/` directory.

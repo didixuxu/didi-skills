@@ -46,6 +46,12 @@ Customize a master resume against a job description and compile an ATS-friendly 
 
 **Usage:** Drop a JD at Claude and say "tailor resume" / "定制简历". Master resume defaults to `~/Documents/resume.pdf`. Output to `~/Documents/resume_[company]_[role].pdf`.
 
+### notebook-report
+
+Generate warm paper-textured HTML reports in a hand-drawn notebook aesthetic — handwriting fonts (Caveat + Noto Sans SC), sketchy borders, binding holes, and a red margin line. Built for competitive analysis, data comparison, and strategy summaries. Can also export to PNG via Playwright.
+
+**Usage:** Ask Claude for a "手绘风报告" / "笔记本风格报告" / "notebook-style report". It produces an HTML report with the paper-notebook look and feel, optionally rendering it to a PNG image.
+
 ## Install
 
 ```bash
@@ -60,6 +66,7 @@ ln -s "$(pwd)/didi-skills/word-formatter" ~/.claude/skills/word-formatter
 ln -s "$(pwd)/didi-skills/word-proofreader" ~/.claude/skills/word-proofreader
 ln -s "$(pwd)/didi-skills/data-visualization" ~/.claude/skills/data-visualization
 ln -s "$(pwd)/didi-skills/tailor-resume" ~/.claude/skills/tailor-resume
+ln -s "$(pwd)/didi-skills/notebook-report" ~/.claude/skills/notebook-report
 ```
 
 Or copy the skill folders directly into `~/.claude/skills/` or your project's `.claude/skills/` directory.
